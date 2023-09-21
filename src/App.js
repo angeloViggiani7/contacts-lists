@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource } from "react-admin";
+import { authProvider } from "./authProvider";
+import dataProvider from "angelo-api-google";
+import ContactsList from "./components/contactsList";
+import contactEdit from "./components/contactEdit";
+import contactCreate from "./components/contactCreate";
+import listCreate from "./components/listCreate";
+import listEdit from "./components/listEdit";
+import ShowedList from "./components/showedList";
+import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Admin dataProvider={dataProvider} authProvider={authProvider}>
+      <Resource
+        name="list"
+        list={ShowedList}
+        edit={listEdit}
+        create={listCreate}
+      />
+      <Resource
+        icon={ContactPhoneIcon}
+        name="list_item"
+        list={ContactsList}
+        edit={contactEdit}
+        create={contactCreate}
+      />
+    </Admin>
   );
 }
 
