@@ -1,6 +1,6 @@
 import { Admin, Resource } from "react-admin";
 import { authProvider } from "./authProvider";
-import dataProvider from "angelo-api-google";
+import SheetDbDataProvider from "angelo-api-google";
 import ContactsList from "./components/contactsList";
 import contactEdit from "./components/contactEdit";
 import contactCreate from "./components/contactCreate";
@@ -11,7 +11,7 @@ import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 
 function App() {
   return (
-    <Admin dataProvider={dataProvider} authProvider={authProvider}>
+    <Admin dataProvider={SheetDbDataProvider} authProvider={authProvider}>
       <Resource
         name="list"
         list={ShowedList}

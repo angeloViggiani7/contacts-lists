@@ -1,12 +1,12 @@
 import { Edit, SimpleForm, TextInput } from "react-admin";
 
 const contactEdit = () => (
-  <Edit>
+  <Edit title="Edit Contact">
     <SimpleForm>
       <TextInput source="id" disabled />
       <TextInput source="name" />
       <TextInput source="surname" />
-      <TextInput source="number" />
+      <TextInput source="phone_number" />
     </SimpleForm>
   </Edit>
 );
